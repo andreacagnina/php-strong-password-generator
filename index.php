@@ -25,7 +25,7 @@ if (isset($_GET['lunghezza']) && $_GET['lunghezza'] !== 0) {
                     <form action="index.php" method="get">
                         <div class="col-4 my-3">
                             <label for="">Scegli una lunghezza per la tua password</label>
-                            <input type="number" name="lunghezza" id="lunghezza" max="15" class="form-control" placeholder="Inserisci un numero (min-3)">
+                            <input type="number" name="lunghezza" id="lunghezza" min="3" max="15" class="form-control" placeholder="Inserisci un numero (min-3)">
                         </div>
                         <div class="col-2">
                             <button type="submit" class="btn btn-primary">Genera</button>
@@ -33,7 +33,7 @@ if (isset($_GET['lunghezza']) && $_GET['lunghezza'] !== 0) {
                         <div class="row">
                             <div class="col-12">
                                 <div class="content">
-                                    <?php if ($lunghezza > 0) { ?>
+                                    <?php if ($lunghezza >= 3) { ?>
                                         <h1> <?php echo "La tua password è:  $newPassword" ?></h1>
                                     <?php } ?>
                                 </div>
