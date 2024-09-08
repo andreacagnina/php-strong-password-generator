@@ -1,7 +1,17 @@
 <?php
 if (isset($_GET['lunghezza']) && ($_GET['lunghezza']) != '') {
     $lunghezza = $_GET['lunghezza'];
-    var_dump($lunghezza);
+    //var_dump($lunghezza);
+    function generateRandomPassword($lunghezza)
+    {
+        $str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?@#-_/*+<>()[]{}';
+        $passwordGen = '';
+        for ($i = 0; $i < $lunghezza; $i++) {
+            $passwordGen .= $str[rand(0, strlen($str) - 1)];
+        }
+        return $passwordGen;
+    }
+    //var_dump(generateRandomPassword($_GET['lunghezza']));
 }
 ?>
 <!DOCTYPE html>
@@ -22,7 +32,7 @@ if (isset($_GET['lunghezza']) && ($_GET['lunghezza']) != '') {
                     <form action="./index.php" method="get">
                         <div class="col-4 my-3">
                             <label for="">Scegli una lunghezza per la tua password</label>
-                            <input type="number" name="lunghezza" id="lunghezza" min="5" max="10" class="form-control" placeholder="Inserisci un numero">
+                            <input type="number" name="lunghezza" id="lunghezza" min="3" max="15" class="form-control" placeholder="Inserisci un numero (min-3)">
                         </div>
                         <div class="col-2">
                             <button type="submit" class="btn btn-primary">Genera</button>
