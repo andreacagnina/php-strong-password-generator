@@ -1,5 +1,8 @@
 <?php
-
+if (isset($_GET['lunghezza']) && ($_GET['lunghezza']) != '') {
+    $lunghezza = $_GET['lunghezza'];
+    var_dump($lunghezza);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
